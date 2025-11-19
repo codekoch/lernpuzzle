@@ -1,0 +1,54 @@
+{
+  "title": "Der Zweite Weltkrieg: Chronologie",
+  "rows": 8,
+  "cols": 3,
+  "headers": [
+    "Datum",
+    "Ereignis",
+    "Beteiligte / Details"
+  ],
+  "solution": [
+    [
+      "1. September 1939",
+      "Angriff auf Polen",
+      "Beginn des Krieges durch Deutschland"
+    ],
+    [
+      "22. Juni 1940",
+      "Waffenstillstand von Compiègne",
+      "Niederlage und Besetzung Frankreichs"
+    ],
+    [
+      "22. Juni 1941",
+      "Unternehmen Barbarossa",
+      "Angriff Deutschlands auf die Sowjetunion"
+    ],
+    [
+      "7. Dezember 1941",
+      "Angriff auf Pearl Harbor",
+      "Kriegseintritt der USA"
+    ],
+    [
+      "20. Januar 1942",
+      "Wannseekonferenz",
+      "Organisation der systematischen Ermordung der Juden"
+    ],
+    [
+      "2. Februar 1943",
+      "Ende der Schlacht von Stalingrad",
+      "Wende an der Ostfront (Niederlage der 6. Armee)"
+    ],
+    [
+      "6. Juni 1944",
+      "D-Day (Operation Overlord)",
+      "Landung der Alliierten in der Normandie"
+    ],
+    [
+      "8. Mai 1945",
+      "Bedingungslose Kapitulation der Wehrmacht",
+      "Ende des Krieges in Europa (V-E Day)"
+    ]
+  ],
+  "isOrderForced": true,
+  "helpText": "Ordne per Drag and Drop die Kacheln der richtigen Überschrift zu und achte darauf, dass in einer Zeile alles zueinander passt. \nDie Daten müssen chronologisch geordnet sein. "
+}

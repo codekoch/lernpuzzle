@@ -1,0 +1,72 @@
+{
+  "title": "Puzzle - Elektrische Größen - Bring Ordnung in das Chaos! ",
+  "rows": 8,
+  "cols": 5,
+  "headers": [
+    "Physikalische Größe",
+    "Formelsymbol",
+    "Einheit",
+    "Einheitensymbol",
+    "Zusammenhang"
+  ],
+  "solution": [
+    [
+      "Spannung",
+      "U",
+      "Volt",
+      "V",
+      "U=R⋅I"
+    ],
+    [
+      "Strom",
+      "I",
+      "Ampere",
+      "A",
+      "I=U/R"
+    ],
+    [
+      "Widerstand",
+      "R",
+      "Ohm",
+      "Ω",
+      "R=U/I"
+    ],
+    [
+      "Ladung",
+      "Q",
+      "Coulomb",
+      "C",
+      "Q=I⋅t"
+    ],
+    [
+      "elektrische Kraft",
+      "F<sub>el</sub>",
+      "Newton",
+      "N",
+      "F<sub>el</sub>=E⋅Q"
+    ],
+    [
+      "elektrisches Feld",
+      "E",
+      "Volt pro Meter",
+      "V/m",
+      "E=F<sub>el</sub>/Q"
+    ],
+    [
+      "elektrische Energie",
+      "E<sub>el</sub>",
+      "Joule oder Elektronenvolt",
+      "J oder eV",
+      "E<sub>el</sub>=Q⋅U"
+    ],
+    [
+      "elektrische Leistung",
+      "P",
+      "Watt",
+      "W",
+      "P=U⋅I"
+    ]
+  ],
+  "isOrderForced": false,
+  "helpText": "Ordne per Drag and Drop die Kacheln der richtigen Überschrift zu und achte darauf, dass in einer Zeile alles zueinander passt."
+}
