@@ -58,7 +58,7 @@ Fülle die Überschriften und die Zellen mit Inhalten.
 
 Tipp: Für tiefgestellte Zahlen nutze <sub>2</sub>.
 
-Tipp: Für Bilder nutze '<img src="...">' oder füge SVG-Code direkt ein.
+Tipp: Für Bilder nutze den üblichen html Code oder füge SVG-Code direkt ein.
 
 (Optional) Füge einen Hilfetext hinzu.
 
