@@ -1,0 +1,72 @@
+{
+  "title": "Ganzrationale Funktionen: Transformationen & Extrempunkte",
+  "rows": 8,
+  "cols": 5,
+  "headers": [
+    "Funktionsterm f(x)",
+    "Symmetrie (zum KOS)",
+    "Verhalten für |x| → ∞",
+    "Nullstellen (Anzahl & Art)",
+    "Graphische Besonderheit / Extrempunkte"
+  ],
+  "solution": [
+    [
+      "f(x) = x² - 4",
+      "Achsensymmetrie (zur y-Achse)",
+      "für x → ±∞ gilt f(x) → +∞",
+      "2 einfache Nullstellen: {-2; 2}",
+      "Globaler Tiefpunkt (Scheitelpunkt) bei T(0|-4)"
+    ],
+    [
+      "f(x) = (x - 3)²",
+      "Keine Standardsymmetrie",
+      "für x → ±∞ gilt f(x) → +∞",
+      "1 doppelte Nullstelle: {3}",
+      "Berührpunkt auf der x-Achse ist Tiefpunkt T(3|0)"
+    ],
+    [
+      "f(x) = -x² - 2",
+      "Achsensymmetrie (zur y-Achse)",
+      "für x → ±∞ gilt f(x) → -∞",
+      "Keine Nullstellen",
+      "Parabel nach unten, Scheitelpunkt ist Hochpunkt H(0|-2)"
+    ],
+    [
+      "f(x) = x³",
+      "Punktsymmetrie (zum Ursprung)",
+      "Verlauf von III nach I (↙ nach ↗)",
+      "1 dreifache Nullstelle: {0}",
+      "Sattelpunkt im Ursprung (kein Extrempunkt)"
+    ],
+    [
+      "f(x) = -x³",
+      "Punktsymmetrie (zum Ursprung)",
+      "Verlauf von II nach IV (↖ nach ↘)",
+      "1 dreifache Nullstelle: {0}",
+      "Graph fällt streng monoton (keine Extrempunkte)"
+    ],
+    [
+      "f(x) = x³ - x",
+      "Punktsymmetrie (zum Ursprung)",
+      "Verlauf von III nach I (↙ nach ↗)",
+      "3 einfache Nullstellen: {-1; 0; 1}",
+      "„Schlangenlinie“ mit je einem Hoch- und Tiefpunkt"
+    ],
+    [
+      "f(x) = x⁴ - 4x²",
+      "Achsensymmetrie (zur y-Achse)",
+      "für x → ±∞ gilt f(x) → +∞",
+      "3 Nullstellen: {-2; 0; 2}",
+      "W-Form: Hochpunkt H(0|0) und zwei Tiefpunkte"
+    ],
+    [
+      "f(x) = (x + 2)³ + 1",
+      "Keine Standardsymmetrie",
+      "Verlauf von III nach I (↙ nach ↗)",
+      "1 einfache Nullstelle bei x = -3",
+      "Sattelpunkt (kein Extrempunkt) verschoben nach P(-2|1)"
+    ]
+  ],
+  "isOrderForced": false,
+  "helpText": "Ordne per Drag and Drop die Kacheln der richtigen Überschrift zu und achte darauf, dass in einer Zeile alles zueinander passt."
+}

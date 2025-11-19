@@ -1,0 +1,54 @@
+{
+  "title": "Ganzrationale Funktionen: Symmetrie & Grenzverhalten",
+  "rows": 8,
+  "cols": 3,
+  "headers": [
+    "Funktion f(x)",
+    "Symmetrie",
+    "Grenzverhalten (x &rarr; &plusmn;&infin;)"
+  ],
+  "solution": [
+    [
+      "f(x) = 5x<sup>4</sup> - 2x<sup>2</sup> + 1",
+      "Achsensymmetrisch zur y-Achse",
+      "f(x) &rarr; +&infin; für x &rarr; &plusmn;&infin;"
+    ],
+    [
+      "f(x) = x<sup>5</sup> + 3x<sup>3</sup> - 7x",
+      "Punktsymmetrisch zum Ursprung",
+      "f(x) &rarr; +&infin; für x &rarr; +&infin; und f(x) &rarr; -&infin; für x &rarr; -&infin;"
+    ],
+    [
+      "f(x) = -x<sup>3</sup> + 6x<sup>2</sup> - 4x + 9",
+      "Keine Symmetrie (gemischt)",
+      "f(x) &rarr; -&infin; für x &rarr; +&infin; und f(x) &rarr; +&infin; für x &rarr; -&infin;"
+    ],
+    [
+      "f(x) = -2x<sup>6</sup> + 10x<sup>4</sup>",
+      "Achsensymmetrisch zur y-Achse",
+      "f(x) &rarr; -&infin; für x &rarr; &plusmn;&infin;"
+    ],
+    [
+      "f(x) = 0.5x<sup>7</sup> - 8x<sup>5</sup> + x",
+      "Punktsymmetrisch zum Ursprung",
+      "f(x) &rarr; +&infin; für x &rarr; +&infin; und f(x) &rarr; -&infin; für x &rarr; -&infin;"
+    ],
+    [
+      "f(x) = 3x<sup>2</sup> - 5x + 11",
+      "Keine Symmetrie (gemischt)",
+      "f(x) &rarr; +&infin; für x &rarr; &plusmn;&infin;"
+    ],
+    [
+      "f(x) = 4x<sup>9</sup> - 1",
+      "Keine Symmetrie (gemischt)",
+      "f(x) &rarr; +&infin; für x &rarr; +&infin; und f(x) &rarr; -&infin; für x &rarr; -&infin;"
+    ],
+    [
+      "f(x) = -x<sup>8</sup> + x<sup>4</sup> - 3",
+      "Achsensymmetrisch zur y-Achse",
+      "f(x) &rarr; -&infin; für x &rarr; &plusmn;&infin;"
+    ]
+  ],
+  "isOrderForced": false,
+  "helpText": "Ordne per Drag and Drop die Kacheln der richtigen Überschrift zu und achte darauf, dass in einer Zeile alles zueinander passt."
+}
