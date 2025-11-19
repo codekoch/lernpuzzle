@@ -1,5 +1,3 @@
-Hier ist ein Entwurf für eine professionelle und ausführliche README.md, die genau auf den Funktionsumfang deines Projekts zugeschnitten ist. Du kannst diesen Text direkt kopieren und auf GitHub verwenden.
-
 🧩 Lernpuzzle - Der universelle Sortierspiel-Generator
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
