@@ -10,9 +10,9 @@ Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Templ
 
 Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot: https://github.com/codekoch/lernpuzzle/blob/main/Screenshot_Beispiel_KI_Prompt.pdf). 
 
-Klicke auf "Spiel starten", um es selbst zu testen. 
+Klicke auf "Spiel starten", um es selbst zu testen (Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel.html>Bieispiel</a>). 
 
-Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
+Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst ((Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel_fuerSchueler.html>Beispiel</a>).
 
 ✨ Funktionen
 
