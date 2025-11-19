@@ -12,7 +12,7 @@ Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein andere
 
 Klicke auf "Spiel starten", um es selbst zu testen (Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel.html>Beispiel</a> für ein fertiges Puzzle). 
 
-Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst ((Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel_fuerSchueler.html >Beispiel</a>).
+Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst (Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel_fuerSchueler.html >Beispiel</a>).
 
 ✨ Funktionen
 
