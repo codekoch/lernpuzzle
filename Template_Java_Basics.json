@@ -1,0 +1,87 @@
+{
+  "title": "Java Experten-Puzzle: Syntax & Strukturen",
+  "rows": 12,
+  "cols": 4,
+  "isOrderForced": false,
+  "headers": [
+    "Begriff",
+    "Erklärung",
+    "Allgemeine Syntax",
+    "Konkretes Code-Beispiel"
+  ],
+  "solution": [
+    [
+      "Klasse",
+      "Bauplan für Objekte, der Eigenschaften und Methoden definiert.",
+      "<code>[Modifizierer] class [Name] { ... }</code>",
+      "<code>public class Roboter { ... }</code>"
+    ],
+    [
+      "Objekt",
+      "Eine zur Laufzeit erzeugte Instanz einer Klasse.",
+      "<code>[Klasse] [Variablenname] = new [Klasse]();</code>",
+      "<code>Roboter r2d2 = new Roboter();</code>"
+    ],
+    [
+      "Primitive Variable",
+      "Speicherplatz für einfache Werte (Zahlen, Zeichen, Wahrheitswerte).",
+      "<code>[Datentyp] [Name] = [Wert];</code>",
+      "<code>int lebenspunkte = 100;</code>"
+    ],
+    [
+      "Methode",
+      "Funktionsblock innerhalb einer Klasse, der ein Verhalten ausführt.",
+      "<code>[Rückgabetyp] [Name]() { ... }</code>",
+      "<code>public void springen() { y = y + 10; }</code>"
+    ],
+    [
+      "Konstruktor",
+      "Spezielle Methode, die beim Erzeugen (new) eines Objekts aufgerufen wird.",
+      "<code>public [KlassenName]( [Parameter] ) { ... }</code>",
+      "<code>public Roboter(String modell) { this.modell = modell; }</code>"
+    ],
+    [
+      "if-Anweisung",
+      "Führt einen Codeblock nur aus, wenn die Bedingung wahr ist.",
+      "<code>if ( [Bedingung] ) { ... }</code>",
+      "<code>if (energie < 10) { aufladen(); }</code>"
+    ],
+    [
+      "if-else-Anweisung",
+      "Alternative Ausführung: Ein Block für wahr, einer für falsch.",
+      "<code>if ( [Bedingung] ) { ... } else { ... }</code>",
+      "<code>if (istTag) { lichtAus(); } else { lichtAn(); }</code>"
+    ],
+    [
+      "for-Schleife",
+      "Zähl-Schleife: Ideal, wenn die Anzahl der Wiederholungen bekannt ist.",
+      "<code>for ([Start]; [Bedingung]; [Schritt]) { ... }</code>",
+      "<code>for (int i = 0; i < 5; i++) { system.out.print(i); }</code>"
+    ],
+    [
+      "while-Schleife",
+      "Kopfgesteuerte Schleife: Prüft erst, läuft dann (evtl. nie).",
+      "<code>while ( [Bedingung] ) { ... }</code>",
+      "<code>while (akku > 0) { fahren(); }</code>"
+    ],
+    [
+      "do-while-Schleife",
+      "Fußgesteuerte Schleife: Läuft mindestens einmal, prüft am Ende.",
+      "<code>do { ... } while ( [Bedingung] );</code>",
+      "<code>do { eingabeLesen(); } while (falscheEingabe);</code>"
+    ],
+    [
+      "Array (Deklaration)",
+      "Container für mehrere Werte des gleichen Datentyps mit fester Größe.",
+      "<code>[Typ][] [Name] = new [Typ][Größe];</code>",
+      "<code>String[] namen = new String[5];</code>"
+    ],
+    [
+      "Inkrement-Operator",
+      "Erhöht den Wert einer numerischen Variable um genau 1.",
+      "<code>[Variable]++;</code> oder <code>++[Variable];</code>",
+      "<code>score++; // score ist jetzt 1 höher</code>"
+    ]
+  ],
+  "helpText": "Vervollständige die Tabelle! Zu jedem Java-Begriff gehören eine textuelle Erklärung, die abstrakte Syntax-Schreibweise und ein konkretes Stück Programmcode."
+}
