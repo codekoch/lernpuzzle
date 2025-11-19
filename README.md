@@ -1,6 +1,18 @@
 🧩 Lernpuzzle - Der universelle Sortierspiel-Generator
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
+🚀 Schnellstart
+Lade die Datei index.html herunter oder öffne sie direkt auf GitHub Pages.
+
+Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Template (z.B.Template_Java_Basics.json)
+
+Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot). 
+
+Klicke auf "Spiel starten", um es selbst zu testen.
+
+Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
+
+
 ✨ Funktionen
 Das Projekt ist in zwei Bereiche unterteilt: den Editor (zum Erstellen) und das Spiel (zum Lösen).
 
@@ -47,24 +59,6 @@ Aus (Standard): Es ist egal, in welcher Zeile eine korrekte Zuordnung liegt. Hau
 
 An: Die Zeilen müssen exakt an der Position liegen, wie sie im Editor erstellt wurden (gut für Rankings, Abläufe oder feste Strukturen).
 
-🚀 Schnellstart
-Lade die Datei index.html herunter oder öffne sie direkt auf GitHub Pages.
-
-Gib einen Titel ein.
-
-Lege die Dimensionen fest (z.B. 8 Zeilen, 3 Spalten) und klicke auf "Erstellen".
-
-Fülle die Überschriften und die Zellen mit Inhalten.
-
-Tipp: Für tiefgestellte Zahlen nutze <sub>2</sub>.
-
-Tipp: Für Bilder nutze den üblichen html Code oder füge SVG-Code direkt ein.
-
-(Optional) Füge einen Hilfetext hinzu.
-
-Klicke auf "Spiel starten", um es selbst zu testen.
-
-Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
 
 🛠 Technische Details
 Das Projekt basiert auf reinem HTML5, CSS3 und Vanilla JavaScript.
