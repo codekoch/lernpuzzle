@@ -6,7 +6,7 @@ Lade die Datei index.html herunter und öffne sie mit einem Browser.
 
 Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Template (z.B.Template_Java_Basics.json)
 
-Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot). 
+Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot: https://github.com/codekoch/lernpuzzle/blob/main/Screenshot_Beispiel_KI_Prompt.pdf). 
 
 Klicke auf "Spiel starten", um es selbst zu testen.
 
