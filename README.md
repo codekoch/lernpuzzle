@@ -2,7 +2,7 @@
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
 🚀 Schnellstart
-Lade die Datei index.html herunter oder öffne sie direkt auf GitHub Pages.
+Lade die Datei index.html herunter und öffne sie mit einem Browser.
 
 Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Template (z.B.Template_Java_Basics.json)
 
