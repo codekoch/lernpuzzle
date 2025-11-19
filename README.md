@@ -4,7 +4,7 @@ Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozente
 
 🚀 Schnellstart
 
-Lade die Datei <b>index.html</b> herunter und öffne sie mit einem Browser.
+Lade die Datei <b>index.html</b> herunter und öffne sie mit einem Browser oder direkt auf diesen Link https://codekoch.github.io/lernpuzzle/.
 
 Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Template (z.B.Template_Java_Basics.json)
 
