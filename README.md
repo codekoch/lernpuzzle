@@ -1,4 +1,4 @@
-🧩 Lernpuzzle - Ein universeller Sortierspiel-Generator
+🧩 <div><href=https://codekoch.github.io/lernpuzzle/>.Lernpuzzle - Ein universeller Sortierspiel-Generator</div>
 
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
@@ -10,7 +10,7 @@ Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Templ
 
 Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot: https://github.com/codekoch/lernpuzzle/blob/main/Screenshot_Beispiel_KI_Prompt.pdf). 
 
-Klicke auf "Spiel starten", um es selbst zu testen.
+Klicke auf "Spiel starten", um es selbst zu testen. 
 
 Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
 
