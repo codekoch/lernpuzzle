@@ -1,4 +1,4 @@
-🧩 Lernpuzzle - Der universelle Sortierspiel-Generator
+🧩 Lernpuzzle - Ein universeller Sortierspiel-Generator
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
 🚀 Schnellstart
@@ -11,7 +11,6 @@ Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein andere
 Klicke auf "Spiel starten", um es selbst zu testen.
 
 Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
-
 
 ✨ Funktionen
 Das Projekt ist in zwei Bereiche unterteilt: den Editor (zum Erstellen) und das Spiel (zum Lösen).
