@@ -1,4 +1,5 @@
 🧩 Lernpuzzle - Ein universeller Sortierspiel-Generator
+
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
 🚀 Schnellstart
@@ -14,9 +15,11 @@ Klicke auf "Spiel starten", um es selbst zu testen.
 Klicke auf "Gemischtes Spiel herunterladen", um eine neue HTML-Datei zu erhalten, die du weitergeben kannst.
 
 ✨ Funktionen
+
 Das Projekt ist in zwei Bereiche unterteilt: den Editor (zum Erstellen) und das Spiel (zum Lösen).
 
 Für Ersteller (Editor-Modus)
+
 Keine Installation: Läuft in jedem modernen Browser (Chrome, Firefox, Safari, Edge).
 
 Dynamische Größe: Wähle beliebig viele Zeilen und Spalten für dein Raster.
@@ -36,6 +39,7 @@ Lade eine editierbare HTML-Version herunter, um später weiterzuarbeiten.
 Verteilung: Generiere mit einem Klick eine fertig gemischte, spielbare HTML-Datei, die du an Schüler verteilen kannst (per E-Mail, Moodle, Teams etc.).
 
 Für Spieler (Spiel-Modus)
+
 Intuitive Bedienung: Drag & Drop Funktionalität (optimiert für Maus und Touch).
 
 iPad & Mobile Ready: Spezielle Optimierungen verhindern unerwünschtes Verhalten auf iOS (z.B. Textauswahl/Suche beim Ziehen) und passen das Layout an kleine Bildschirme an ("Fit-to-Screen").
@@ -53,6 +57,7 @@ Zufallsgenerator: Jedes Mal, wenn die spielbare Datei geöffnet oder "Neu gemisc
 Hilfe-Funktion: Ein optionaler Hilfe-Button zeigt Spielregeln oder Hinweise an.
 
 Spielmodi
+
 Es gibt einen speziellen Schalter im Editor: "Korrekte Zeilenreihenfolge erzwingen".
 
 Aus (Standard): Es ist egal, in welcher Zeile eine korrekte Zuordnung liegt. Hauptsache, die Kacheln innerhalb einer Zeile passen zusammen.
@@ -61,6 +66,7 @@ An: Die Zeilen müssen exakt an der Position liegen, wie sie im Editor erstellt 
 
 
 🛠 Technische Details
+
 Das Projekt basiert auf reinem HTML5, CSS3 und Vanilla JavaScript.
 
 Single File Application: Der gesamte Code (Logik, Styling, Struktur) befindet sich in einer Datei. Das macht das Teilen extrem einfach.
@@ -74,6 +80,7 @@ Spielbare Dateien enthalten die Daten als JSON-String direkt im Quellcode (const
 Responsive Design: Nutzt 100dvh (Dynamic Viewport Height) und Flexbox/Grid, um den Bildschirm auf Mobilgeräten optimal ohne Scrollbalken am Seitenrand zu nutzen.
 
 📂 Template-Format (JSON)
+
 Fortgeschrittene Nutzer können Templates auch direkt als JSON erstellen und importieren:
 
 JSON
@@ -90,8 +97,11 @@ JSON
   ],
   "helpText": "Anleitung hier..."
 }
+
 🤝 Mitwirken
+
 Beiträge sind willkommen! Wenn du einen Fehler findest oder eine Idee für eine neue Funktion hast, erstelle gerne ein "Issue" oder einen "Pull Request".
 
 📜 Lizenz
+
 Dieses Projekt ist Open Source. Du kannst es frei verwenden, verändern und für Bildungszwecke nutzen.
