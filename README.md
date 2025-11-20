@@ -104,4 +104,4 @@ Beiträge sind willkommen! Wenn du einen Fehler findest oder eine Idee für eine
 
 📜 Lizenz
 
-Dieses Projekt ist Open Source. Du kannst es frei verwenden, verändern und für Bildungszwecke nutzen.
+Dieses Projekt ist Open Source und wurde letztendlich mit einer KI erstellt. Du kannst es frei verwenden, verändern und für Bildungszwecke nutzen.
