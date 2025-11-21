@@ -6,9 +6,9 @@ Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozente
 
 Lade die Datei <b>index.html</b> herunter und öffne sie mit einem Browser oder klicke direkt auf diesen Link <b>https://codekoch.github.io/lernpuzzle/</b>.
 
-Verändere das Puzzle nach deinen Wünschen oder lade direkt ein passendes Template (z.B.Template_Java_Basics.json)
+Verändere das Puzzle nach deinen Wünschen, lade direkt ein passendes Template* (z.B.Template_Java_Basics.json) oder (am einfachsten) füge direkt json-Code* als Template ein. 
 
-Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot: https://github.com/codekoch/lernpuzzle/blob/main/Screenshot_Beispiel_KI_Prompt.pdf). 
+*Tipp: Du kannst auch KI nutzen, um direkt ein passendes Template für ein anderes Thema zu erstellen (Im Anhang ist ein kleiner Screenshot: https://github.com/codekoch/lernpuzzle/blob/main/Screenshot_Beispiel_KI_Prompt.pdf). 
 
 Klicke auf "Spiel starten", um es selbst zu testen (Hier ein <a href=https://codekoch.github.io/lernpuzzle/Beispiel.html>Beispiel</a> für ein fertiges Puzzle). 
 
