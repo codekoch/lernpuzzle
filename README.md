@@ -1,4 +1,4 @@
-🧩 <a href=https://codekoch.github.io/lernpuzzle/>.Lernpuzzle - Ein universeller Sortierspiel-Generator</a>
+🧩 <a href=https://codekoch.github.io/lernpuzzle/>Lernpuzzle - Ein universeller Sortierspiel-Generator</a>
 
 Lernpuzzle ist ein leichtgewichtiges, webbasiertes Tool, mit dem Lehrer, Dozenten und Schüler interaktive Zuordnungsspiele (Matching-Puzzles) erstellen können. Das gesamte Projekt besteht aus einer einzigen HTML-Datei, benötigt keine Installation und keinen Server.
 
