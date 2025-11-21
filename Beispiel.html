@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sortierspiel-Ersteller</title>
+    <title>Sortierspiel-Ersteller (Editierbar)</title>
     <style>
         /* --- GRUNDLAYOUT & iOS FIXES --- */
         html { height: 100%; -webkit-text-size-adjust: 100%; touch-action: manipulation; }
@@ -135,46 +135,44 @@
         .btn-primary { background-color: #007bff; color: white; }
         .btn-secondary { background-color: #6c757d; color: white; }
     </style>
+    <script>if (typeof preloadedData === 'undefined') { var preloadedData = { rows: 0 }; }</script>
 </head>
 <body>
-
+    <h2 id="main-title">Sortierspiel-Ersteller</h2>
     <div id="input-section">
         <div class="input-title-row">
-            <label for="game-title">Titel:</label>
+            <label for="game-title">Titel des Spiels:</label>
             <div id="game-title-wrapper">
-                <input type="text" id="game-title" value="Dynamisches Sortierspiel">
+                <input type="text" id="game-title" value="Quadratische Funktionen: Scheitelpunkt &amp; Punktprobe">
                 <div id="game-title-preview" class="preview-cell"></div>
             </div>
         </div>
-
-        <h3>1. Dimensionen</h3>
+        <h3>1. Dimensionen festlegen</h3>
         <div id="dimension-setter">
-            <label>Zeilen:</label> <input type="number" id="num-rows" value="3" min="1" max="10">
-            <label>Spalten:</label> <input type="number" id="num-cols" value="3" min="1" max="10">
-            <button type="button" id="generate-grid-button">Erstellen</button>
+            <label for="num-rows">Zeilen:</label>
+            <input type="number" id="num-rows" value="8" min="1" max="10">
+            <label for="num-cols">Spalten:</label>
+            <input type="number" id="num-cols" value="3" min="1" max="10">
+            <button type="button" id="generate-grid-button">Eingabefelder erstellen</button>
         </div>
-        
         <div id="help-text-wrapper">
             <label for="help-text-input">Spielregeln / Hilfe-Text (optional):</label>
-            <textarea id="help-text-input" placeholder="Hier können Sie Anweisungen oder Hinweise für die Spieler eingeben..."></textarea>
+            <textarea id="help-text-input">&lt;h3&gt;Anleitung&lt;/h3&gt;&lt;p&gt;Ordne jeder Funktionsgleichung den passenden Scheitelpunkt und einen Punkt zu, der auf dem Graphen liegt.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Scheitelpunkt bestimmen:&lt;/strong&gt; Bei f(x) = a(x - d)&lt;sup&gt;2&lt;/sup&gt; + e liegt der Scheitelpunkt bei S(d|e). Achte auf das Vorzeichen in der Klammer!&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Punktprobe:&lt;/strong&gt; Setze den x-Wert des Punktes in die Gleichung ein. Wenn das Ergebnis der y-Wert ist, gehört der Punkt dazu.&lt;/li&gt;&lt;/ul&gt;</textarea>
         </div>
-        
         <div id="order-switch-wrapper">
-            <input type="checkbox" id="force-order-switch" name="force-order">
+            <input type="checkbox" id="force-order-switch" name="force-order" >
             <label for="force-order-switch">Korrekte Zeilenreihenfolge erzwingen</label>
         </div>
-
-        <h3>2. Inhalte</h3>
+        <h3>2. Felder beschriften (z.B. H&lt;sub&gt;2&lt;/sub&gt;O)</h3>
         <div id="input-grid"></div>
         <button id="start-button">Spiel starten</button>
-
         <div id="template-controls">
             <button id="save-template-button">Template speichern</button>
             <button id="load-template-button">Template laden</button>
-            <button id="paste-template-button">Templatecode einfügen</button> <input type="file" id="load-template-input" accept=".json,.txt">
+            <button id="paste-template-button">Templatecode einfügen</button>
+            <input type="file" id="load-template-input" accept=".json,.txt">
         </div>
     </div>
-
     <div id="game-section">
         <h2 id="game-title-display"></h2> 
         <p id="score-display">Korrekte Zeilen: 0 / 0</p>
@@ -188,7 +186,6 @@
         <div id="table-header"></div>
         <div id="game-board"></div>
     </div>
-
     <div id="help-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="document.getElementById('help-modal').style.display='none'">&times;</span>
@@ -196,26 +193,29 @@
             <div id="modal-text"></div>
         </div>
     </div>
-
     <div id="paste-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button" id="close-paste-modal">&times;</span>
+            <span class="close-button" onclick="document.getElementById('paste-modal').style.display='none'">&times;</span>
             <h3 style="margin-top: 0;">Template-Code einfügen</h3>
             <p style="margin-bottom: 5px;">Fügen Sie hier den JSON-Code Ihres Templates ein:</p>
             <textarea id="paste-textarea" placeholder='{ "title": "Mein Spiel", ... }'></textarea>
             <div class="modal-footer">
-                <button class="modal-btn btn-secondary" id="cancel-paste">Abbrechen</button>
-                <button class="modal-btn btn-primary" id="confirm-paste">Template laden</button>
+                <button class="modal-btn btn-secondary" id="cancel-paste-dl">Abbrechen</button>
+                <button class="modal-btn btn-primary" id="confirm-paste-dl">Template laden</button>
             </div>
         </div>
     </div>
-
     <script>
-        if (typeof preloadedData === 'undefined') {
-            var preloadedData = { rows: 0 };
-        }
-    </script>
-    
+        var preloadedData = {
+            title: "Quadratische Funktionen: Scheitelpunkt & Punktprobe",
+            headers: ["Funktionsgleichung (Scheitelpunktsform)","Scheitelpunkt S(d|e)","Punkt P(x|y) auf dem Graphen"],
+            solution: [["f(x) = (x - 2)<sup>2</sup> - 1","S(2|-1)","P(3|0)"],["f(x) = (x + 1)<sup>2</sup> + 3","S(-1|3)","P(0|4)"],["f(x) = -(x - 3)<sup>2</sup> + 4","S(3|4)","P(1|0)"],["f(x) = 2(x + 2)<sup>2</sup> - 5","S(-2|-5)","P(-1|-3)"],["f(x) = 0,5(x - 4)<sup>2</sup> + 1","S(4|1)","P(6|3)"],["f(x) = -0,5(x + 3)<sup>2</sup> - 2","S(-3|-2)","P(-1|-4)"],["f(x) = x<sup>2</sup>","S(0|0)","P(-2|4)"],["f(x) = -2(x - 1)<sup>2</sup> + 8","S(1|8)","P(3|0)"]],
+            rows: 8,
+            cols: 3,
+            isOrderForced: false,
+            helpText: "<h3>Anleitung</h3><p>Ordne jeder Funktionsgleichung den passenden Scheitelpunkt und einen Punkt zu, der auf dem Graphen liegt.</p><ul><li><strong>Scheitelpunkt bestimmen:</strong> Bei f(x) = a(x - d)<sup>2</sup> + e liegt der Scheitelpunkt bei S(d|e). Achte auf das Vorzeichen in der Klammer!</li><li><strong>Punktprobe:</strong> Setze den x-Wert des Punktes in die Gleichung ein. Wenn das Ergebnis der y-Wert ist, gehört der Punkt dazu.</li></ul>"
+        };
+    </script> 
     <script id="main-game-script">
         document.addEventListener('DOMContentLoaded', () => {
             // DOM Elemente
@@ -882,6 +882,16 @@ shuffleButton.addEventListener('click', shuffleItems); initGame();
 
             // --- Initialisierung ---
             generateInputGrid();
+        });
+    </script>
+    <script>
+        // Event Listener für Paste Modal Buttons im heruntergeladenen File nachladen
+        document.getElementById('cancel-paste-dl').addEventListener('click', () => document.getElementById('paste-modal').style.display='none');
+        document.getElementById('confirm-paste-dl').addEventListener('click', () => {
+            const code = document.getElementById('paste-textarea').value;
+            // ... (Logik wird durch main-game-script abgedeckt, muss hier aber ggf. getriggert werden. 
+            // Da main-game-script ALLES enthält, reicht es, wenn die Buttons IDs haben, die vom Script gefunden werden.)
+            // Der Einfachheit halber: Das main-game-script initialisiert alles.
         });
     </script>
 </body>
