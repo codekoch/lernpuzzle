@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sortierspiel-Ersteller</title>
     <style>
-        /* --- GRUNDLAYOUT & iOS FIXES --- */
+        /* --- GRUNDLAYOUT --- */
         html { height: 100%; -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         body { height: 100dvh; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background-color: #f4f7f6; overflow: hidden; }
 
@@ -171,7 +171,7 @@
         </div>
     </div>
 
-    <script>
+    <script id="preloaded-data-script">
         if (typeof preloadedData === 'undefined') {
             var preloadedData = { rows: 0 };
         }
@@ -179,7 +179,7 @@
     
     <script id="main-game-script">
         document.addEventListener('DOMContentLoaded', () => {
-            // DOM Elemente
+            // DOM
             const inputSection = document.getElementById('input-section');
             const gameSection = document.getElementById('game-section');
             const startButton = document.getElementById('start-button');
@@ -198,7 +198,6 @@
             const inputGrid = document.getElementById('input-grid');
             const gameTitleInput = document.getElementById('game-title');
             const gameTitleDisplay = document.getElementById('game-title-display');
-            const mainTitle = document.getElementById('main-title');
             const scoreDisplay = document.getElementById('score-display');
             const saveTemplateButton = document.getElementById('save-template-button');
             const loadTemplateButton = document.getElementById('load-template-button');
@@ -215,6 +214,7 @@
             const cancelPasteButton = document.getElementById('cancel-paste');
             const closePasteModalButton = document.getElementById('close-paste-modal');
 
+            // State
             let solution = []; let headerTexts = []; let draggedItem = null;
             let numRows = 0; let numCols = 0; 
             let gameTitle = "Dynamisches Sortierspiel";
@@ -222,32 +222,26 @@
             let helpText = "";
             let startTime = null; let endTime = null;
 
+            // Template Example
             const exampleTemplate = {
                 "title": "Beispiel-Titel",
-                "rows": 2,
-                "cols": 2,
+                "rows": 2, "cols": 2,
                 "headers": ["Kategorie 1", "Kategorie 2"],
-                "solution": [
-                    ["Feld A1", "Feld A2"],
-                    ["Feld B1", "Feld B2"]
-                ],
-                "isOrderForced": false,
-                "helpText": "Optionaler Hilfetext"
+                "solution": [["Feld A1", "Feld A2"], ["Feld B1", "Feld B2"]],
+                "isOrderForced": false, "helpText": "Optionaler Hilfetext"
             };
             pasteTextarea.placeholder = JSON.stringify(exampleTemplate, null, 2);
 
+            // Helpers
             function renderCellContent(cell, content) {
                 content = content || '';
                 if (content.match(/\.(jpeg|jpg|gif|png|webp)$/i) && (content.startsWith('http://') || content.startsWith('https://'))) {
                     cell.innerHTML = `<img src="${content}" alt="Bild-Kachel">`;
-                } else {
-                    cell.innerHTML = content;
-                }
+                } else { cell.innerHTML = content; }
             }
             function areArraysEqual(arr1, arr2) {
                 if (arr1.length !== arr2.length) { return false; }
-                for (let i = 0; i < arr1.length; i++) { if (arr1[i] !== arr2[i]) { return false; } }
-                return true;
+                for (let i = 0; i < arr1.length; i++) { if (arr1[i] !== arr2[i]) { return false; } } return true;
             }
             function escapeHTML(str) {
                 if (typeof str !== 'string') return '';
@@ -260,17 +254,16 @@
                 const elements = document.querySelectorAll('.grid-item, .header-cell');
                 elements.forEach(el => {
                     if (el.querySelector('img') || el.querySelector('svg')) return;
-                    let fontSize = 18; 
-                    const minFontSize = 9;
+                    let fontSize = 18; const minFontSize = 9;
                     el.style.fontSize = fontSize + 'px';
                     while ( (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) && fontSize > minFontSize ) {
-                        fontSize -= 0.5;
-                        el.style.fontSize = fontSize + 'px';
+                        fontSize -= 0.5; el.style.fontSize = fontSize + 'px';
                     }
                 });
             }
             window.addEventListener('resize', () => { if (gameSection.style.display !== 'none') fitTextToTiles(); });
 
+            // Modals
             function openHelpModal() { helpModal.style.display = "block"; }
             function closeHelpModal() { helpModal.style.display = "none"; }
             if(helpButton) helpButton.addEventListener('click', openHelpModal);
@@ -302,10 +295,12 @@
                 if (event.target == pasteModal) closePasteModal();
             });
 
+            // Logic
             function generateInputGrid() {
                 const usePreloaded = (typeof preloadedData !== 'undefined' && preloadedData.rows > 0);
                 const oldValues = { headers: {}, grid: {} };
                 let oldNumRows = numRows; let oldNumCols = numCols;
+                
                 if (usePreloaded) {
                     gameTitleInput.value = preloadedData.title;
                     helpTextInput.value = preloadedData.helpText || "";
@@ -386,14 +381,10 @@
                 collectInput(); 
                 gameTitleDisplay.innerHTML = gameTitle;
                 modalText.innerHTML = helpText.replace(/\n/g, '<br>');
-                
-                if (!helpText) { helpButton.style.display = 'none'; } 
-                else { helpButton.style.display = 'inline-block'; }
-
+                if (!helpText) { helpButton.style.display = 'none'; } else { helpButton.style.display = 'inline-block'; }
                 tableHeader.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
                 gameBoard.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
                 gameBoard.style.gridTemplateRows = `repeat(${numRows}, minmax(0, 1fr))`; 
-                
                 tableHeader.innerHTML = '';
                 headerTexts.forEach(text => { 
                     const headerCell = document.createElement('div'); headerCell.classList.add('header-cell'); renderCellContent(headerCell, text); tableHeader.appendChild(headerCell); 
@@ -402,20 +393,13 @@
                 const flatSolution = solution.flat(); 
                 flatSolution.forEach((itemText, index) => {
                     const item = document.createElement('div');
-                    item.classList.add('grid-item');
-                    item.setAttribute('draggable', true);
-                    item.id = `item-${index}`; 
-                    renderCellContent(item, itemText);
-                    item.dataset.value = itemText; 
-                    item.addEventListener('dragstart', handleDragStart);
-                    item.addEventListener('dragover', handleDragOver);
-                    item.addEventListener('drop', handleDrop);
-                    item.addEventListener('dragend', handleDragEnd);
+                    item.classList.add('grid-item'); item.setAttribute('draggable', true); item.id = `item-${index}`; 
+                    renderCellContent(item, itemText); item.dataset.value = itemText; 
+                    item.addEventListener('dragstart', handleDragStart); item.addEventListener('dragover', handleDragOver); item.addEventListener('drop', handleDrop); item.addEventListener('dragend', handleDragEnd);
                     gameBoard.appendChild(item);
                 });
                 shuffleItems(); 
-                inputSection.style.display = 'none';
-                gameSection.style.display = 'flex'; 
+                inputSection.style.display = 'none'; gameSection.style.display = 'flex'; 
                 document.body.style.overflow = 'hidden';
                 setTimeout(fitTextToTiles, 100);
             }
@@ -425,33 +409,22 @@
                 let contents = solution.flat(); 
                 for (let i = contents.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [contents[i], contents[j]] = [contents[j], contents[i]]; }
                 items.forEach((item, index) => {
-                    renderCellContent(item, contents[index]);
-                    item.dataset.value = contents[index]; 
-                    item.classList.remove('correct');
-                    item.setAttribute('draggable', true);
-                    item.style.fontSize = '';
+                    renderCellContent(item, contents[index]); item.dataset.value = contents[index]; 
+                    item.classList.remove('correct'); item.setAttribute('draggable', true); item.style.fontSize = '';
                 });
-                startTime = new Date();
-                checkSolution();
-                setTimeout(fitTextToTiles, 50);
+                startTime = new Date(); checkSolution(); setTimeout(fitTextToTiles, 50);
             }
 
             function checkSolution() {
                 if (solution.length === 0 || !solution[0]) return; 
-                let allRowsAreCorrect = true;
-                let correctRowCount = 0;
-                const items = Array.from(gameBoard.children);
-                const numColsOnBoard = solution[0].length;
-                const numRowsOnBoard = solution.length;
+                let allRowsAreCorrect = true; let correctRowCount = 0;
+                const items = Array.from(gameBoard.children); const numColsOnBoard = solution[0].length; const numRowsOnBoard = solution.length;
                 let boardRows = [];
                 for (let r = 0; r < numRowsOnBoard; r++) {
                     let currentRowContents = []; let currentRowItems = [];
                     for (let c = 0; c < numColsOnBoard; c++) {
-                        const itemIndex = r * numColsOnBoard + c;
-                        if (!items[itemIndex]) continue;
-                        const currentItem = items[itemIndex];
-                        currentRowItems.push(currentItem);
-                        currentRowContents.push(currentItem.dataset.value);
+                        const itemIndex = r * numColsOnBoard + c; if (!items[itemIndex]) continue;
+                        const currentItem = items[itemIndex]; currentRowItems.push(currentItem); currentRowContents.push(currentItem.dataset.value);
                     }
                     boardRows.push({ items: currentRowItems, contents: currentRowContents });
                 }
@@ -459,11 +432,9 @@
                     for (let r = 0; r < numRowsOnBoard; r++) {
                         const boardRow = boardRows[r];
                         if (areArraysEqual(boardRow.contents, solution[r])) {
-                            boardRow.items.forEach(item => { item.classList.add('correct'); item.setAttribute('draggable', false); });
-                            correctRowCount++;
+                            boardRow.items.forEach(item => { item.classList.add('correct'); item.setAttribute('draggable', false); }); correctRowCount++;
                         } else {
-                            boardRow.items.forEach(item => { item.classList.remove('correct'); item.setAttribute('draggable', true); });
-                            allRowsAreCorrect = false;
+                            boardRow.items.forEach(item => { item.classList.remove('correct'); item.setAttribute('draggable', true); }); allRowsAreCorrect = false;
                         }
                     }
                 } else {
@@ -490,38 +461,54 @@
                 }
             }
 
-            function handleDragStart(e) {
-                if (this.classList.contains('correct')) { e.preventDefault(); return; } 
-                draggedItem = this; 
-                e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('text/plain', ''); 
-                e.dataTransfer.setData('text/html', this.innerHTML); 
-                setTimeout(() => this.classList.add('dragging'), 0); 
-            }
+            function handleDragStart(e) { if (this.classList.contains('correct')) { e.preventDefault(); return; } draggedItem = this; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', ''); e.dataTransfer.setData('text/html', this.innerHTML); setTimeout(() => this.classList.add('dragging'), 0); }
             function handleDragOver(e) { e.preventDefault(); return false; }
-            function handleDrop(e) { 
-                e.stopPropagation(); 
-                const targetItem = this; 
-                if (draggedItem === targetItem || targetItem.classList.contains('correct')) { return; } 
-                const draggedContent = draggedItem.innerHTML; const draggedValue = draggedItem.dataset.value;
-                const targetContent = targetItem.innerHTML; const targetValue = targetItem.dataset.value;
-                draggedItem.innerHTML = targetContent; draggedItem.dataset.value = targetValue;
-                targetItem.innerHTML = draggedContent; targetItem.dataset.value = draggedValue;
-                
-                const draggedSize = draggedItem.style.fontSize;
-                draggedItem.style.fontSize = targetItem.style.fontSize;
-                targetItem.style.fontSize = draggedSize;
-                
-                checkSolution(); 
-            }
+            function handleDrop(e) { e.stopPropagation(); const targetItem = this; if (draggedItem === targetItem || targetItem.classList.contains('correct')) { return; } const draggedContent = draggedItem.innerHTML; const draggedValue = draggedItem.dataset.value; const targetContent = targetItem.innerHTML; const targetValue = targetItem.dataset.value; draggedItem.innerHTML = targetContent; draggedItem.dataset.value = targetValue; targetItem.innerHTML = draggedContent; targetItem.dataset.value = draggedValue; const draggedSize = draggedItem.style.fontSize; draggedItem.style.fontSize = targetItem.style.fontSize; targetItem.style.fontSize = draggedSize; checkSolution(); }
             function handleDragEnd() { this.classList.remove('dragging'); draggedItem = null; }
-            function resetToInput() {
-                inputSection.style.display = 'block';
-                gameSection.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            function resetToInput() { inputSection.style.display = 'block'; gameSection.style.display = 'none'; document.body.style.overflow = 'auto'; }
+
+            // --- DOWNLOAD (EDITABLE) VIA DOM CLONE ---
+            function downloadEditableGame() {
+                // 1. Update DOM Attributes
+                document.getElementById('game-title').setAttribute('value', document.getElementById('game-title').value);
+                document.getElementById('num-rows').setAttribute('value', document.getElementById('num-rows').value);
+                document.getElementById('num-cols').setAttribute('value', document.getElementById('num-cols').value);
+                document.getElementById('help-text-input').innerHTML = escapeHTML(document.getElementById('help-text-input').value);
+                
+                const checkbox = document.getElementById('force-order-switch');
+                if(checkbox.checked) checkbox.setAttribute('checked', 'checked'); else checkbox.removeAttribute('checked');
+
+                // 2. Clone DOM
+                let htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+                // 3. Prepare Data Script
+                collectInput();
+                const dataScript = `var preloadedData = {
+            title: ${JSON.stringify(gameTitle)},
+            headers: ${JSON.stringify(headerTexts)},
+            solution: ${JSON.stringify(solution)},
+            rows: ${numRows},
+            cols: ${numCols},
+            isOrderForced: ${isOrderForced},
+            helpText: ${JSON.stringify(helpText)}
+        };`;
+
+                // 4. Inject Data into Hook
+                // Replace content of preloaded-data-script
+                const hookRegex = /<script id="preloaded-data-script">([\s\S]*?)<\/script>/;
+                // Safe replace: insert dataScript
+                htmlContent = htmlContent.replace(hookRegex, `<script id="preloaded-data-script">${dataScript}<\/script>`);
+
+                // 5. Download
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'sortierspiel-editierbar.html';
+                document.body.appendChild(a); a.click();
+                document.body.removeChild(a); URL.revokeObjectURL(url);
             }
 
-            // --- DOWNLOAD FUNCTIONS (Mixed) ---
+            // --- DOWNLOAD (MIXED) ---
             function getMixedGameTemplate(headerItems, correctSolution, cols, title, forceOrder, helpText) {
                 const solutionString = JSON.stringify(correctSolution);
                 const headerHTML = headerItems.map(text => `<div class="header-cell">${text}</div>`).join('\n');
@@ -624,94 +611,6 @@ shuffleButton.addEventListener('click', shuffleItems); initGame();
 });
 ${closingScript}</body></html>`;
             }
-            
-            // --- DOWNLOAD FUNCTIONS (Editable) ---
-            function getEditableCreatorTemplate(title, headers, solutionData, rows, cols, forceOrder, helpText) {
-                const mainScriptString = document.getElementById('main-game-script').textContent;
-                const cssString = document.querySelector('style').innerHTML;
-                const closingScript = '<' + '/script>';
-                
-                // RE-ADD THE MISSING MODAL HTML COPYING HERE
-                const modalHTML = document.getElementById('help-modal').outerHTML;
-                const pasteModalHTML = document.getElementById('paste-modal').outerHTML;
-
-                const preloadedDataScript = `<script>
-        var preloadedData = {
-            title: ${JSON.stringify(title)},
-            headers: ${JSON.stringify(headers)},
-            solution: ${JSON.stringify(solutionData)},
-            rows: ${rows},
-            cols: ${cols},
-            isOrderForced: ${forceOrder},
-            helpText: ${JSON.stringify(helpText)}
-        };
-    ${closingScript}`;
-
-                return `<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sortierspiel-Ersteller (Editierbar)</title>
-    <style>${cssString}</style>
-    <script>if (typeof preloadedData === 'undefined') { var preloadedData = { rows: 0 }; }${closingScript}
-</head>
-<body>
-    <h2 id="main-title">Sortierspiel-Ersteller</h2>
-    <div id="input-section">
-        <div class="input-title-row">
-            <label for="game-title">Titel des Spiels:</label>
-            <div id="game-title-wrapper">
-                <input type="text" id="game-title" value="${escapeHTML(title)}">
-                <div id="game-title-preview" class="preview-cell"></div>
-            </div>
-        </div>
-        <h3>1. Dimensionen festlegen</h3>
-        <div id="dimension-setter">
-            <label for="num-rows">Zeilen:</label>
-            <input type="number" id="num-rows" value="${rows}" min="1" max="10">
-            <label for="num-cols">Spalten:</label>
-            <input type="number" id="num-cols" value="${cols}" min="1" max="10">
-            <button type="button" id="generate-grid-button">Eingabefelder erstellen</button>
-        </div>
-        <div id="help-text-wrapper">
-            <label for="help-text-input">Spielregeln / Hilfe-Text (optional):</label>
-            <textarea id="help-text-input">${escapeHTML(helpText)}</textarea>
-        </div>
-        <div id="order-switch-wrapper">
-            <input type="checkbox" id="force-order-switch" name="force-order" ${forceOrder ? 'checked' : ''}>
-            <label for="force-order-switch">Korrekte Zeilenreihenfolge erzwingen</label>
-        </div>
-        <h3>2. Felder beschriften (z.B. H&lt;sub&gt;2&lt;/sub&gt;O)</h3>
-        <div id="input-grid"></div>
-        <button id="start-button">Spiel starten</button>
-        <div id="template-controls">
-            <button id="save-template-button">Template speichern</button>
-            <button id="load-template-button">Template laden</button>
-            <button id="paste-template-button">Templatecode einfügen</button>
-            <input type="file" id="load-template-input" accept=".json,.txt">
-        </div>
-    </div>
-    <div id="game-section">
-        <h2 id="game-title-display"></h2> 
-        <p id="score-display">Korrekte Zeilen: 0 / 0</p>
-        <div id="controls">
-            <button id="shuffle-button">Mischen</button>
-            <button id="help-button">Hilfe</button>
-            <button id="download-button">Gemischtes Spiel herunterladen</button>
-            <button id="download-editable-button">Editierbare Version herunterladen</button>
-            <button id="reset-button">Zurück zur Eingabe</button>
-        </div>
-        <div id="table-header"></div>
-        <div id="game-board"></div>
-    </div>
-    ${modalHTML}
-    ${pasteModalHTML}
-    ${preloadedDataScript}
-    <script id="main-game-script">${mainScriptString}${closingScript}
-</body>
-</html>`;
-            }
 
             function downloadMixedGame() {
                 collectInput(); 
@@ -722,20 +621,6 @@ ${closingScript}</body></html>`;
                 a.href = url; a.download = 'sortierspiel-gemischt.html'; 
                 document.body.appendChild(a); a.click();
                 document.body.removeChild(a); URL.revokeObjectURL(url);
-            }
-            
-            function downloadEditableGame() {
-                collectInput(); 
-                const htmlContent = getEditableCreatorTemplate(gameTitle, headerTexts, solution, numRows, numCols, isOrderForced, helpText);
-                const blob = new Blob([htmlContent], { type: 'text/html' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'sortierspiel-editierbar.html';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
             }
             
             function downloadTemplate() {
