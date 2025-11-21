@@ -9,15 +9,13 @@
         html { height: 100%; -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         body { height: 100dvh; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background-color: #f4f7f6; overflow: hidden; }
 
+        /* --- SCROLLBARS --- */
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
         ::-webkit-scrollbar-track { background: transparent; }
 
         /* --- EDITOR --- */
-        #input-section {
-            background-color: white; padding: 20px; box-sizing: border-box; width: 100%; max-width: 800px; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            max-height: 95dvh; overflow-y: auto; display: flex; flex-direction: column;
-        }
+        #input-section { background-color: white; padding: 20px; box-sizing: border-box; width: 100%; max-width: 800px; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-height: 95dvh; overflow-y: auto; display: flex; flex-direction: column; }
 
         h2 { color: #333; margin: 0 0 15px 0; text-align: center; flex-shrink: 0; }
         
@@ -36,22 +34,17 @@
         #help-text-wrapper label { display: block; font-weight: bold; margin-bottom: 5px; }
         #help-text-input { width: 100%; height: 80px; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-family: inherit; resize: vertical; }
 
-        #order-switch-wrapper { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; flex-shrink: 0; }
+        #order-switch-wrapper { margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; text-align: center; flex-shrink: 0; }
         #order-switch-wrapper label { font-weight: bold; font-size: 1em; cursor: pointer; margin-left: 5px; }
         #force-order-switch { width: 16px; height: 16px; vertical-align: middle; cursor: pointer; }
 
         #input-grid { display: grid; gap: 10px; margin-bottom: 20px; margin-top: 10px; flex-grow: 1; }
         .input-header-label, .input-row-label { grid-column: 1 / -1; font-weight: bold; margin-top: 15px; text-align: left; color: #343a40; }
+        
         .input-cell-wrapper { position: relative; width: 100%; min-height: 60px; height: auto; }
         #input-grid input[type="text"] { width: 100%; min-height: 60px; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-size: 1em; }
         
-        .preview-cell { 
-            width: 100%; min-height: 60px; height: auto; padding: 10px; 
-            border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; 
-            font-size: 1.1em; display: flex; justify-content: center; align-items: center; 
-            background-color: #f8f9fa; cursor: pointer; overflow: hidden; text-align: center; 
-            word-break: normal; overflow-wrap: break-word; hyphens: auto;
-        }
+        .preview-cell { width: 100%; min-height: 60px; height: auto; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-size: 1.1em; display: flex; justify-content: center; align-items: center; background-color: #f8f9fa; cursor: pointer; overflow: hidden; text-align: center; word-break: normal; overflow-wrap: break-word; hyphens: auto; }
         .preview-cell img, .preview-cell svg { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
         .preview-cell svg { width: 100%; height: 100%; object-fit: contain; }
         #input-grid .preview-cell { font-size: 1em; font-weight: bold; }
@@ -62,23 +55,16 @@
         #template-controls button { padding: 10px 15px; font-size: 1em; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
         #save-template-button { background-color: #007bff; color: white; }
         #load-template-button { background-color: #28a745; color: white; }
-        #paste-template-button { background-color: #6f42c1; color: white; } /* Lila für "Einfügen" */
+        #paste-template-button { background-color: #6f42c1; color: white; }
         #load-template-input { display: none; }
 
         /* --- SPIEL-BEREICH --- */
-        #game-section { 
-            display: none; flex-direction: column; 
-            height: 100dvh; width: 100%; 
-            padding: 10px 10px 50px 10px; box-sizing: border-box; 
-        }
-        
+        #game-section { display: none; flex-direction: column; height: 100dvh; width: 100%; padding: 10px 10px 50px 10px; box-sizing: border-box; }
         #game-title-display { word-break: break-word; font-size: 1.5em; margin: 5px 0; text-align: center; flex-shrink: 0; }
         #score-display { font-size: 1em; font-weight: bold; color: #333; margin: 5px 0 10px 0; text-align: center; flex-shrink: 0; }
         
-        #controls { margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; flex-shrink: 0; align-items: center; }
-        #shuffle-button, #reset-button, #download-button, #download-editable-button, #help-button { 
-            padding: 8px 12px; font-size: 0.9em; cursor: pointer; color: white; border: none; border-radius: 5px; transition: background-color 0.3s; 
-        }
+        #controls { margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; flex-shrink: 0; }
+        #shuffle-button, #reset-button, #download-button, #download-editable-button, #help-button { padding: 8px 12px; font-size: 0.9em; cursor: pointer; color: white; border: none; border-radius: 5px; transition: background-color 0.3s; }
         #shuffle-button { background-color: #007bff; }
         #reset-button { background-color: #6c757d; }
         #download-button { background-color: #17a2b8; }
@@ -86,50 +72,24 @@
         #help-button { background-color: #17a2b8; font-weight: bold; }
 
         #table-header { display: grid; gap: 4px; width: 100%; margin-bottom: 4px; flex-shrink: 0; }
-        .header-cell { 
-            background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; 
-            text-align: center; font-weight: bold; padding: 4px; 
-            display: flex; align-items: center; justify-content: center; 
-            word-break: normal; overflow-wrap: break-word; hyphens: auto; min-height: 30px; height: auto;
-            font-size: 1em; 
-        }
+        .header-cell { background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; text-align: center; font-weight: bold; padding: 4px; display: flex; align-items: center; justify-content: center; word-break: normal; overflow-wrap: break-word; hyphens: auto; min-height: 30px; height: auto; font-size: 1em; }
         
         #game-board { display: grid; gap: 4px; width: 100%; flex-grow: 1; min-height: 0; }
         
-        .grid-item { 
-            background-color: #ffffff; border: 1px solid #ced4da; border-radius: 4px; 
-            display: flex; justify-content: center; align-items: center; 
-            font-weight: bold; cursor: move; 
-            user-select: none; transition: all 0.1s ease; text-align: center; padding: 4px; 
-            width: 100%; height: 100%; overflow-y: auto; 
-            word-break: normal; overflow-wrap: break-word; hyphens: auto; box-sizing: border-box;
-            font-size: 1em; 
-        }
+        .grid-item { background-color: #ffffff; border: 1px solid #ced4da; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-weight: bold; cursor: move; user-select: none; transition: all 0.1s ease; text-align: center; padding: 4px; width: 100%; height: 100%; overflow-y: auto; word-break: normal; overflow-wrap: break-word; hyphens: auto; box-sizing: border-box; font-size: 1em; }
         .grid-item.dragging { opacity: 0.6; border: 2px dashed #007bff; }
         .grid-item.correct { border: 2px solid #28a745; background-color: #eafaea; cursor: not-allowed; }
         .grid-item img, .grid-item svg { width: 100%; height: 100%; object-fit: contain; padding: 2px; box-sizing: border-box; pointer-events: none; }
         .grid-item svg { width: 100%; height: 100%; object-fit: contain; padding: 5px; box-sizing: border-box; }
 
-        /* --- MODAL STYLES --- */
-        .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; 
-            overflow: auto; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(2px);
-        }
-        .modal-content {
-            background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888;
-            width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: relative;
-            max-height: 90vh; display: flex; flex-direction: column;
-        }
-        .close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 20px; }
-        .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
+        /* MODAL */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(2px); }
+        .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: relative; max-height: 90vh; display: flex; flex-direction: column; }
+        .close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 20px; align-self: flex-end; }
+        .close-button:hover { color: black; }
         #modal-text { font-size: 1.1em; line-height: 1.5; color: #333; margin-top: 10px; white-space: pre-wrap; overflow-y: auto; }
         
-        /* Styles für das Paste-Modal */
-        #paste-textarea {
-            width: 100%; height: 200px; margin-top: 10px; margin-bottom: 15px;
-            font-family: monospace; padding: 10px; border: 1px solid #ccc; border-radius: 4px;
-            resize: vertical;
-        }
+        #paste-textarea { width: 100%; height: 200px; margin-top: 10px; margin-bottom: 15px; font-family: monospace; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; }
         .modal-footer { text-align: right; }
         .modal-btn { padding: 8px 16px; margin-left: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-primary { background-color: #007bff; color: white; }
@@ -171,7 +131,8 @@
         <div id="template-controls">
             <button id="save-template-button">Template speichern</button>
             <button id="load-template-button">Template laden</button>
-            <button id="paste-template-button">Templatecode einfügen</button> <input type="file" id="load-template-input" accept=".json,.txt">
+            <button id="paste-template-button">Templatecode einfügen</button>
+            <input type="file" id="load-template-input" accept=".json,.txt">
         </div>
     </div>
 
@@ -191,7 +152,7 @@
 
     <div id="help-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button" onclick="document.getElementById('help-modal').style.display='none'">&times;</span>
+            <span class="close-button" id="close-help-modal">&times;</span>
             <h3 style="margin-top: 0;">Spielregeln / Hilfe</h3>
             <div id="modal-text"></div>
         </div>
@@ -202,7 +163,7 @@
             <span class="close-button" id="close-paste-modal">&times;</span>
             <h3 style="margin-top: 0;">Template-Code einfügen</h3>
             <p style="margin-bottom: 5px;">Fügen Sie hier den JSON-Code Ihres Templates ein:</p>
-            <textarea id="paste-textarea" placeholder='{ "title": "Mein Spiel", ... }'></textarea>
+            <textarea id="paste-textarea"></textarea>
             <div class="modal-footer">
                 <button class="modal-btn btn-secondary" id="cancel-paste">Abbrechen</button>
                 <button class="modal-btn btn-primary" id="confirm-paste">Template laden</button>
@@ -245,8 +206,8 @@
             const forceOrderSwitch = document.getElementById('force-order-switch');
             const gameTitlePreview = document.getElementById('game-title-preview');
             const helpTextInput = document.getElementById('help-text-input');
-
-            // Neue DOM Elemente für Paste-Funktion
+            const closeHelpModalButton = document.getElementById('close-help-modal');
+            
             const pasteTemplateButton = document.getElementById('paste-template-button');
             const pasteModal = document.getElementById('paste-modal');
             const pasteTextarea = document.getElementById('paste-textarea');
@@ -260,6 +221,20 @@
             let isOrderForced = false;
             let helpText = "";
             let startTime = null; let endTime = null;
+
+            const exampleTemplate = {
+                "title": "Beispiel-Titel",
+                "rows": 2,
+                "cols": 2,
+                "headers": ["Kategorie 1", "Kategorie 2"],
+                "solution": [
+                    ["Feld A1", "Feld A2"],
+                    ["Feld B1", "Feld B2"]
+                ],
+                "isOrderForced": false,
+                "helpText": "Optionaler Hilfetext"
+            };
+            pasteTextarea.placeholder = JSON.stringify(exampleTemplate, null, 2);
 
             function renderCellContent(cell, content) {
                 content = content || '';
@@ -296,18 +271,13 @@
             }
             window.addEventListener('resize', () => { if (gameSection.style.display !== 'none') fitTextToTiles(); });
 
-            // --- MODAL LOGIK (HILFE) ---
             function openHelpModal() { helpModal.style.display = "block"; }
+            function closeHelpModal() { helpModal.style.display = "none"; }
             if(helpButton) helpButton.addEventListener('click', openHelpModal);
-            
-            // --- MODAL LOGIK (PASTE) ---
-            function openPasteModal() { 
-                pasteTextarea.value = ''; 
-                pasteModal.style.display = "block"; 
-                pasteTextarea.focus();
-            }
+            if(closeHelpModalButton) closeHelpModalButton.addEventListener('click', closeHelpModal);
+
+            function openPasteModal() { pasteTextarea.value = ''; pasteModal.style.display = "block"; pasteTextarea.focus(); }
             function closePasteModal() { pasteModal.style.display = "none"; }
-            
             pasteTemplateButton.addEventListener('click', openPasteModal);
             closePasteModalButton.addEventListener('click', closePasteModal);
             cancelPasteButton.addEventListener('click', closePasteModal);
@@ -315,38 +285,23 @@
             confirmPasteButton.addEventListener('click', () => {
                 const code = pasteTextarea.value;
                 if (!code.trim()) return;
-                
                 try {
                     const data = JSON.parse(code);
-                    // Validierung
                     if (!data.title || !data.rows || !data.cols || !data.headers || !data.solution) {
-                        alert("Fehler: Der Code scheint kein gültiges Template zu sein.");
-                        return;
+                        alert("Fehler: Ungültiges Template."); return;
                     }
-                    // Daten laden
-                    preloadedData.title = data.title;
-                    preloadedData.headers = data.headers;
-                    preloadedData.solution = data.solution;
-                    preloadedData.rows = data.rows;
-                    preloadedData.cols = data.cols;
-                    preloadedData.isOrderForced = data.isOrderForced || false;
-                    preloadedData.helpText = data.helpText || "";
-                    
-                    generateInputGrid();
-                    closePasteModal();
-                    
-                } catch (e) {
-                    alert("Fehler beim Lesen des Codes: " + e.message);
-                }
+                    preloadedData.title = data.title; preloadedData.headers = data.headers; preloadedData.solution = data.solution;
+                    preloadedData.rows = data.rows; preloadedData.cols = data.cols;
+                    preloadedData.isOrderForced = data.isOrderForced || false; preloadedData.helpText = data.helpText || "";
+                    generateInputGrid(); closePasteModal();
+                } catch (e) { alert("Fehler: " + e.message); }
             });
-
-            // Schließt Modals bei Klick auf Hintergrund
+            
             window.addEventListener('click', (event) => { 
-                if (event.target == helpModal) helpModal.style.display = "none";
+                if (event.target == helpModal) closeHelpModal();
                 if (event.target == pasteModal) closePasteModal();
             });
 
-            // --- EINGABE-RASTER ---
             function generateInputGrid() {
                 const usePreloaded = (typeof preloadedData !== 'undefined' && preloadedData.rows > 0);
                 const oldValues = { headers: {}, grid: {} };
@@ -427,7 +382,6 @@
                 }
             }
 
-            // --- GAME INIT ---
             function initGame() {
                 collectInput(); 
                 gameTitleDisplay.innerHTML = gameTitle;
@@ -554,7 +508,6 @@
                 draggedItem.innerHTML = targetContent; draggedItem.dataset.value = targetValue;
                 targetItem.innerHTML = draggedContent; targetItem.dataset.value = draggedValue;
                 
-                // Font-Swap statt Recalc
                 const draggedSize = draggedItem.style.fontSize;
                 draggedItem.style.fontSize = targetItem.style.fontSize;
                 targetItem.style.fontSize = draggedSize;
@@ -568,13 +521,14 @@
                 document.body.style.overflow = 'auto';
             }
 
-            // --- DOWNLOAD FUNCTIONS ---
+            // --- DOWNLOAD FUNCTIONS (Mixed) ---
             function getMixedGameTemplate(headerItems, correctSolution, cols, title, forceOrder, helpText) {
                 const solutionString = JSON.stringify(correctSolution);
                 const headerHTML = headerItems.map(text => `<div class="header-cell">${text}</div>`).join('\n');
                 const cssString = document.querySelector('style').innerHTML;
                 const fitTextCode = fitTextToTiles.toString();
                 const modalHTML = document.getElementById('help-modal').outerHTML;
+                const closingScript = '<' + '/script>';
 
                 return `<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>${escapeHTML(title)}</title>
@@ -595,10 +549,8 @@ ${modalHTML}
 document.addEventListener('DOMContentLoaded', () => {
 const gameBoard = document.getElementById('game-board'); const shuffleButton = document.getElementById('shuffle-button');
 const scoreDisplay = document.getElementById('score-display');
-const helpButton = document.getElementById('help-button');
-const helpModal = document.getElementById('help-modal');
-const modalText = document.getElementById('modal-text');
-const closeButton = document.querySelector('.close-button');
+const helpButton = document.getElementById('help-button'); const helpModal = document.getElementById('help-modal');
+const modalText = document.getElementById('modal-text'); const closeButton = document.querySelector('.close-button');
 const solution = ${solutionString};
 const isOrderForced = ${forceOrder};
 const helpText = ${JSON.stringify(helpText)};
@@ -670,12 +622,19 @@ function handleDrop(e) { e.stopPropagation(); const targetItem = this; if (dragg
 function handleDragEnd() { this.classList.remove('dragging'); draggedItem = null; }
 shuffleButton.addEventListener('click', shuffleItems); initGame();
 });
-<\/script></body></html>`;
+${closingScript}</body></html>`;
             }
             
+            // --- DOWNLOAD FUNCTIONS (Editable) ---
             function getEditableCreatorTemplate(title, headers, solutionData, rows, cols, forceOrder, helpText) {
-                const mainScriptString = document.getElementById('main-game-script').innerHTML;
+                const mainScriptString = document.getElementById('main-game-script').textContent;
                 const cssString = document.querySelector('style').innerHTML;
+                const closingScript = '<' + '/script>';
+                
+                // RE-ADD THE MISSING MODAL HTML COPYING HERE
+                const modalHTML = document.getElementById('help-modal').outerHTML;
+                const pasteModalHTML = document.getElementById('paste-modal').outerHTML;
+
                 const preloadedDataScript = `<script>
         var preloadedData = {
             title: ${JSON.stringify(title)},
@@ -686,7 +645,7 @@ shuffleButton.addEventListener('click', shuffleItems); initGame();
             isOrderForced: ${forceOrder},
             helpText: ${JSON.stringify(helpText)}
         };
-    <\/script>`;
+    ${closingScript}`;
 
                 return `<!DOCTYPE html>
 <html lang="de">
@@ -695,7 +654,7 @@ shuffleButton.addEventListener('click', shuffleItems); initGame();
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sortierspiel-Ersteller (Editierbar)</title>
     <style>${cssString}</style>
-    <script>if (typeof preloadedData === 'undefined') { var preloadedData = { rows: 0 }; }<\/script>
+    <script>if (typeof preloadedData === 'undefined') { var preloadedData = { rows: 0 }; }${closingScript}
 </head>
 <body>
     <h2 id="main-title">Sortierspiel-Ersteller</h2>
@@ -746,37 +705,10 @@ shuffleButton.addEventListener('click', shuffleItems); initGame();
         <div id="table-header"></div>
         <div id="game-board"></div>
     </div>
-    <div id="help-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="document.getElementById('help-modal').style.display='none'">&times;</span>
-            <h3 style="margin-top: 0;">Spielregeln / Hilfe</h3>
-            <div id="modal-text"></div>
-        </div>
-    </div>
-    <div id="paste-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="document.getElementById('paste-modal').style.display='none'">&times;</span>
-            <h3 style="margin-top: 0;">Template-Code einfügen</h3>
-            <p style="margin-bottom: 5px;">Fügen Sie hier den JSON-Code Ihres Templates ein:</p>
-            <textarea id="paste-textarea" placeholder='{ "title": "Mein Spiel", ... }'></textarea>
-            <div class="modal-footer">
-                <button class="modal-btn btn-secondary" id="cancel-paste-dl">Abbrechen</button>
-                <button class="modal-btn btn-primary" id="confirm-paste-dl">Template laden</button>
-            </div>
-        </div>
-    </div>
-    ${preloadedDataScript} 
-    <script id="main-game-script">${mainScriptString}<\/script>
-    <script>
-        // Event Listener für Paste Modal Buttons im heruntergeladenen File nachladen
-        document.getElementById('cancel-paste-dl').addEventListener('click', () => document.getElementById('paste-modal').style.display='none');
-        document.getElementById('confirm-paste-dl').addEventListener('click', () => {
-            const code = document.getElementById('paste-textarea').value;
-            // ... (Logik wird durch main-game-script abgedeckt, muss hier aber ggf. getriggert werden. 
-            // Da main-game-script ALLES enthält, reicht es, wenn die Buttons IDs haben, die vom Script gefunden werden.)
-            // Der Einfachheit halber: Das main-game-script initialisiert alles.
-        });
-    <\/script>
+    ${modalHTML}
+    ${pasteModalHTML}
+    ${preloadedDataScript}
+    <script id="main-game-script">${mainScriptString}${closingScript}
 </body>
 </html>`;
             }
